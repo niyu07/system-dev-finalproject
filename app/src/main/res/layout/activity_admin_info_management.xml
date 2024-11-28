@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdminInfoManagement">
+
+    <!--    <EditText-->
+<!--        android:id="@+id/etUserID"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:ems="10"-->
+<!--        android:hint="学籍番号"-->
+<!--        android:inputType="text"-->
+<!--        tools:layout_editor_absoluteX="100dp"-->
+<!--        tools:layout_editor_absoluteY="111dp" />-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/etUserName"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:ems="10"-->
+<!--        android:hint="名前"-->
+<!--        android:inputType="text"-->
+<!--        tools:layout_editor_absoluteX="100dp"-->
+<!--        tools:layout_editor_absoluteY="178dp" />-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/etBookID"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:ems="10"-->
+<!--        android:hint="図書ID"-->
+<!--        android:inputType="text"-->
+<!--        tools:layout_editor_absoluteX="100dp"-->
+<!--        tools:layout_editor_absoluteY="305dp" />-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/etBookName"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:ems="10"-->
+<!--        android:hint="図書名"-->
+<!--        android:inputType="text"-->
+<!--        tools:layout_editor_absoluteX="100dp"-->
+<!--        tools:layout_editor_absoluteY="377dp" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/buttonRegGra"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="図書登録"-->
+<!--        tools:layout_editor_absoluteX="58dp"-->
+<!--        tools:layout_editor_absoluteY="441dp" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/buttonRegUser"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="利用者登録"-->
+<!--        tools:layout_editor_absoluteX="217dp"-->
+<!--        tools:layout_editor_absoluteY="240dp" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/buttonDispUser"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="利用者一覧"-->
+<!--        tools:layout_editor_absoluteX="30dp"-->
+<!--        tools:layout_editor_absoluteY="240dp" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/buttonDispBook"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="図書一覧"-->
+<!--        tools:layout_editor_absoluteX="240dp"-->
+<!--        tools:layout_editor_absoluteY="441dp" />-->
+
+    <TextView
+        android:id="@+id/tuAdminInfo"
+        android:layout_width="384dp"
+        android:layout_height="423dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/buttonBacklogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="30dp"
+        android:text="戻る"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonUserPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="60dp"
+        android:text="利用者登録画面"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonBacklogin" />
+
+    <Button
+        android:id="@+id/buttonBookPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="138dp"
+        android:layout_marginEnd="39dp"
+        android:text="図書登録画面"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonstate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="153dp"
+        android:layout_marginBottom="5dp"
+        android:text="貸出情報"
+        app:layout_constraintBottom_toTopOf="@+id/tuAdminInfo"
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
