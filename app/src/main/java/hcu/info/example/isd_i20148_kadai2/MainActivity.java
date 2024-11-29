@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
             btUser.setOnClickListener(new View.OnClickListener(){
                 public void onClick(View view) {
-                    if (UserInfo.existsOfStudentID(etID.getText().toString())) {
+                    if (UserInfo.existsOfUserID(etID.getText().toString())) {
                     Intent i = new Intent(MainActivity.this, UserInfoManagement.class);
                     startActivity(i);
                     }else {
