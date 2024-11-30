@@ -127,23 +127,23 @@ public class BookInfo {
     }
 
 
-    //図書の貸出状況の管理をするシステム 貸出をしたら学籍番号と図書IDを登録する
-    public boolean setBookState(String _Userid, String _Bookid){
-        String State = _Userid + _Bookid;
-        boolean added = BookStateList.add(State);
-
-        return true;
-    }
-
-    //図書状況の情報を取得するメソッド
-    public String getBookStateInfo(){
-        StringBuffer sb = new StringBuffer();
-        for(int i=0;i<BookStateList.size();i++){
-            String bsi = BookStateList.get(i);
-            sb.append(bsi).append("\n");
-        }
-        return sb.toString();
-    }
+//    //図書の貸出状況の管理をするシステム 貸出をしたら学籍番号と図書IDを登録する
+//    public boolean setBookState(String _Userid, String _Bookid){
+//        String State = _Userid + _Bookid;
+//        boolean added = BookStateList.add(State);
+//
+//        return true;
+//    }
+//
+//    //図書状況の情報を取得するメソッド
+//    public String getBookStateInfo(){
+//        StringBuffer sb = new StringBuffer();
+//        for(int i=0;i<BookStateList.size();i++){
+//            String bsi = BookStateList.get(i);
+//            sb.append(bsi).append("\n");
+//        }
+//        return sb.toString();
+//    }
 
 
 

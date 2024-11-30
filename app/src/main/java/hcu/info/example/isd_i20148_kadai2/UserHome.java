@@ -42,7 +42,16 @@ public class UserHome extends AppCompatActivity {
         String id = intent.getStringExtra("KEY_STRING");
         tvid.setText(id);
 
-                //自身が借りている図書の情報の検索　IDで検索をかける　
+        //図書IDを使用して図書を検索する
+        Button btBookSerach = findViewById(R.id.buttonBookSearch);
+        btBookSerach.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view) {
+                // ログインをするときに学籍情報があるかどうかを確認しているのでここではいらない
+                tvInfo.setText(book.searchBook(etBookID.getText().toString()));
+            }
+        });
+
+        //自身が借りている図書の情報の検索　IDで検索をかける　
         Button btSeaMybok = findViewById(R.id.buttonSearch);
         btSeaMybok.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
@@ -53,7 +62,7 @@ public class UserHome extends AppCompatActivity {
         });
 
 
-        // 図書情報の全表示
+        // 全図書情報の全表示
         Button btDispbook = findViewById(R.id.buttonDispbook);
         btDispbook.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
