@@ -38,7 +38,7 @@ public class BookInfo {
 
     //図書の登録
     public boolean setbook(String _bookid, String _bookname){
-        if (existsOfStudentID(_bookid)) {
+        if (existsOfBookID(_bookid)) {
             return false;
         }else {
             Book book = new Book();
@@ -111,7 +111,7 @@ public class BookInfo {
 
 
     // 指定されたが図書IDが存在するかどうかの確認　存在する場合はtrue，存在しない場合はfalseを返す
-    public static Boolean existsOfStudentID(String _bookID){
+    public static Boolean existsOfBookID(String _bookID){
         for(int i=0;i<bookList.size();i++){
             Book book = bookList.get(i);
             if(_bookID.equals(book.bookID)){

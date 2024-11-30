@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     // AdminInfoのインスタンスを作成
     AdminInfo adminManager = new AdminInfo();
     // UserInfoのインスタンスを作成
-    UserInfo userManager = new UserInfo();
+    UserInfo user = new UserInfo();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,9 +43,11 @@ public class MainActivity extends AppCompatActivity {
 
             btUser.setOnClickListener(new View.OnClickListener(){
                 public void onClick(View view) {
-                    if (UserInfo.existsOfStudentID(etID.getText().toString())) {
-                    Intent i = new Intent(MainActivity.this, UserInfoManagement.class);
-                    startActivity(i);
+                    if (UserInfo.existsOfUserID(etID.getText().toString())) {
+                        String userID = etID.getText().toString();
+                        Intent intent = new Intent(MainActivity.this, UserHome.class);
+                        intent.putExtra("KEY_STRING", userID);
+                        startActivity(intent);
                     }else {
                         tvMain.setText("学生番号が登録されていません");
 
@@ -66,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                     etID.setText("");
                     etName.setText("");
                     }else {
-                        tvMain.setText("学生番号が登録されていません");
+                        tvMain.setText("管理者が登録されていません");
                     }
 
                 }

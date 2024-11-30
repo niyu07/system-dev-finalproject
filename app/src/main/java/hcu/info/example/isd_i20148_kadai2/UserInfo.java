@@ -1,5 +1,9 @@
 package hcu.info.example.isd_i20148_kadai2;
 
+import static android.content.Intent.getIntent;
+
+import android.content.Intent;
+
 import java.util.ArrayList;
 
 public class UserInfo {
@@ -28,9 +32,13 @@ public class UserInfo {
 
 
 
+
+
+
+
     //利用者の登録メソッド
     public boolean setUser(String _userid, String _username) {
-        if(existsOfStudentID(_userid)) {
+        if(existsOfUserID(_userid)) {
             System.out.println("すでに学籍馬号が登録されています");
             return false; //すでに登録されている
         }else {
@@ -46,7 +54,7 @@ public class UserInfo {
 
     //利用者の図書の貸出　ログインで確認をとっているので学生番号があるかの確認はいらない
     public boolean addbook(String _userid, String _bookid, String _bookname) {
-        if (existsOfStudentID(_userid)) {
+        if (existsOfUserID(_userid)) {
             for (int i = 0; i < userList.size(); i++) {
                 User user = userList.get(i);
                 if (user.userID.equals(_userid)) {
@@ -61,7 +69,7 @@ public class UserInfo {
 
     //利用者の図書の返却
     public boolean removebook(String _userid, String _bookid) {
-        if (existsOfStudentID(_userid)) {
+        if (existsOfUserID(_userid)) {
             for (int i = 0; i < userList.size(); i++) {
                 User user = userList.get(i);
                 if (user.userID.equals(_userid)) {
@@ -107,7 +115,7 @@ public class UserInfo {
 
 
     // 指定された学籍番号が存在するかどうかの確認　存在する場合はtrue，存在しない場合はfalseを返す
-    public static Boolean existsOfStudentID(String _userID){
+    public static Boolean existsOfUserID(String _userID){
         for(int i=0;i<userList.size();i++){
             User user = userList.get(i);
             if(_userID.equals(user.userID)){
