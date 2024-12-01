@@ -12,7 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
+import android.text.method.ScrollingMovementMethod;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -32,6 +32,8 @@ public class UserHome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_home);
         tvInfo = findViewById(R.id.tvInfo);
+        //textviewでスクロールをできるようにする
+        tvInfo.setMovementMethod(new ScrollingMovementMethod());
         tvid = findViewById(R.id.tvid);
 
         //editTextの宣言

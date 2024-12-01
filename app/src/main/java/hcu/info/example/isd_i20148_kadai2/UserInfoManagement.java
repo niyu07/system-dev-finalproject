@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
+import android.text.method.ScrollingMovementMethod;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -26,6 +26,7 @@ public class UserInfoManagement extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_info_management);
         tvUserInfo = findViewById(R.id.tvUserInfo);
+        tvUserInfo.setMovementMethod(new ScrollingMovementMethod());
         tvid = findViewById(R.id.tvid);
 
         //editTExtの宣言
