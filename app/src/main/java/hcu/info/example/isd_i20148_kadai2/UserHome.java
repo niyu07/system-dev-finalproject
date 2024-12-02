@@ -8,11 +8,12 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.text.method.ScrollingMovementMethod;
+
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -32,8 +33,6 @@ public class UserHome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_home);
         tvInfo = findViewById(R.id.tvInfo);
-        //textviewでスクロールをできるようにする
-        tvInfo.setMovementMethod(new ScrollingMovementMethod());
         tvid = findViewById(R.id.tvid);
 
         //editTextの宣言
@@ -42,6 +41,7 @@ public class UserHome extends AppCompatActivity {
         // Intentから文字列を取得　上の方に表示する前の画面から学籍番号を取ってくるのに必要なので必ず使用するようにする
         Intent intent = getIntent();
         String id = intent.getStringExtra("KEY_STRING");
+        tvInfo.setMovementMethod(new ScrollingMovementMethod());
         tvid.setText(id);
 
         //図書IDを使用して図書を検索する

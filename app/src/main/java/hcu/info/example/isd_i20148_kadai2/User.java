@@ -31,4 +31,9 @@ public class User {
         }
         return cg.toString();
     }
+
+    //Userが借りている本のカウントする
+    public int getBookCount() {
+        return userBook.size();
+    }
 }

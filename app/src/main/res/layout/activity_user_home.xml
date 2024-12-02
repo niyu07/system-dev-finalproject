@@ -10,13 +10,36 @@
 
     <TextView
         android:id="@+id/tvInfo"
-        android:layout_width="350dp"
-        android:layout_height="336dp"
+        android:layout_width="340dp"
+        android:layout_height="316dp"
+        android:layout_marginStart="33dp"
         android:layout_marginEnd="28dp"
         android:layout_marginBottom="24dp"
         android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+
+
+<!--&lt;!&ndash;    やってみるスクロース式のボタンを生成&ndash;&gt;-->
+<!--    <ScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_marginTop="400dp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent">-->
+
+<!--        <LinearLayout-->
+<!--            android:id="@+id/container_layout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical"-->
+<!--            android:padding="16dp">-->
+<!--            &lt;!&ndash; 動的に追加されるビューがここに表示されます &ndash;&gt;-->
+<!--        </LinearLayout>-->
+<!--    </ScrollView>-->
 
     <Button
         android:id="@+id/buttonBookSearch"
@@ -38,7 +61,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    ]
+
 
     <TextView
         android:id="@+id/tvid"

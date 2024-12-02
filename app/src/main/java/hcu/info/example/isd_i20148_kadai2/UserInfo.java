@@ -81,7 +81,7 @@ public class UserInfo {
         return false; //貸出できませんでした
     }
 
-    //借りている本の情報を取り出すメソッド
+    //借りている本の情報を取り出すメソッド 変更する　
     public String getbook(String _userid){
         StringBuffer sb = new StringBuffer();
         for(int i=0;i<userList.size();i++){
@@ -93,6 +93,19 @@ public class UserInfo {
         }
         return sb.toString();
     }
+
+
+    //ログインしたユーザの借りている本の数を数える
+    public int count(String _userid){
+        for(int i=0;i<userList.size();i++){
+            User user = userList.get(i);
+            if (user.userID.equals(_userid)) {
+              return user.getBookCount();
+            }
+        }
+        return 0;
+    }
+
 
 
 
