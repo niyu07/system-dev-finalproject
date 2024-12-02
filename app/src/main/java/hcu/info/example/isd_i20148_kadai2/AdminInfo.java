@@ -4,48 +4,51 @@ import java.util.ArrayList;
 
 public class AdminInfo {
 
+    // Singleton インスタンス
     private static AdminInfo adminInfo = new AdminInfo();
 
-    //リストの作成
+    // 管理者リスト
     private static ArrayList<Admin> adminList;
 
-    AdminInfo(){
+    // コンストラクタ: 初期設定
+    private AdminInfo() {
         adminList = new ArrayList<>();
         System.out.println("インスタンスを作成しました");
 
-        //初期登録
-        Admin admin = new Admin();admin.adminID = "0000"; admin.adminName = "admin"; adminList.add(admin);
-
+        // 初期登録
+        Admin admin = new Admin();
+        admin.adminID = "0000";
+        admin.adminName = "admin";
+        adminList.add(admin);
     }
 
-    public static AdminInfo getInstance(){
+    // Singleton インスタンスを取得
+    public static AdminInfo getInstance() {
         return adminInfo;
     }
 
-
-    //管理者登録
-    public boolean setAdmin(String _adminid, String _adminname) {
-        if(existsOfStudentID(_adminid)) {
-            return false; //すでに登録されている
-        }else {
+    // 管理者登録
+    public boolean setAdmin(String adminID, String adminName) {
+        if (existsOfStudentID(adminID)) {
+            return false; // すでに登録されている
+        } else {
+            // データの追加
             Admin admin = new Admin();
-            //データの追加
-            admin.adminID = _adminid;
-            admin.adminName = _adminname;
+            admin.adminID = adminID;
+            admin.adminName = adminName;
+            adminList.add(admin);
+            return true; // 登録成功
         }
-        return false;
     }
 
-    // 指定された学籍番号が存在するかどうかの確認　存在する場合はtrue，存在しない場合はfalseを返す
-    public static Boolean existsOfStudentID(String _userID){
-        for(int i=0;i<adminList.size();i++){
-            Admin admin = adminList.get(i);
-            if(_userID.equals(admin.adminID)){
+    // 指定された管理者IDが存在するか確認
+    // 存在する場合は true、存在しない場合は false を返す
+    public static boolean existsOfStudentID(String userID) {
+        for (Admin admin : adminList) {
+            if (userID.equals(admin.adminID)) {
                 return true;
             }
         }
         return false;
     }
-
-
 }

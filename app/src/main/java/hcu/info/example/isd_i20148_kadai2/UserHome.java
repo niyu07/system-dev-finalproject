@@ -1,105 +1,90 @@
 package hcu.info.example.isd_i20148_kadai2;
 
-import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;import android.content.Intent;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class UserHome extends AppCompatActivity {
 
-    UserInfo userInfo = UserInfo.getInstance();
-    TextView tvInfo;
-    TextView tvid;
-    BookInfo book = new BookInfo();
-    private Intent intent;
+    // フィールドの宣言
+    private UserInfo userInfo = UserInfo.getInstance();
+    private BookInfo book = new BookInfo();
+    private TextView tvInfo, tvid;
+    private EditText etBookName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_home);
+
+        // UIコンポーネントの初期化
         tvInfo = findViewById(R.id.tvInfo);
         tvid = findViewById(R.id.tvid);
+        etBookName = findViewById(R.id.etBookName);
 
-        //editTextの宣言
-        EditText etBookName = findViewById(R.id.etBookName);
+        tvInfo.setMovementMethod(new ScrollingMovementMethod());
 
-        // Intentから文字列を取得　上の方に表示する前の画面から学籍番号を取ってくるのに必要なので必ず使用するようにする
+        // 前画面から学籍番号を取得して表示
         Intent intent = getIntent();
         String id = intent.getStringExtra("KEY_STRING");
-        tvInfo.setMovementMethod(new ScrollingMovementMethod());
         tvid.setText(id);
 
-        //図書IDを使用して図書を検索する
-        Button btBookSerach = findViewById(R.id.buttonBookSearch);
-        btBookSerach.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view) {
-                // ログインをするときに学籍情報があるかどうかを確認しているのでここではいらない
-                tvInfo.setText(book.searchBook(etBookName.getText().toString()));
-            }
+        // 各ボタンのリスナーを設定
+        setupBookSearchButton();
+        setupMyBookSearchButton(id);
+        setupDisplayAllBooksButton();
+        setupTransitionToLendPageButton(id);
+        setupBackButton();
+    }
+
+    // 図書を検索するボタンの設定
+    private void setupBookSearchButton() {
+        Button btBookSearch = findViewById(R.id.buttonBookSearch);
+        btBookSearch.setOnClickListener(view -> {
+            String searchResult = book.searchBook(etBookName.getText().toString());
+            tvInfo.setText(searchResult);
         });
+    }
 
-        //自身が借りている図書の情報の検索　IDで検索をかける　
-        Button btSeaMybok = findViewById(R.id.buttonSearch);
-        btSeaMybok.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view) {
-                // ログインをするときに学籍情報があるかどうかを確認しているのでここではいらない
-                String foundResolt = userInfo.getbook(id);
-                tvInfo.setText(foundResolt);
-            }
+    // 自身が借りている図書を検索するボタンの設定
+    private void setupMyBookSearchButton(String id) {
+        Button btSearchMyBook = findViewById(R.id.buttonSearch);
+        btSearchMyBook.setOnClickListener(view -> {
+            String result = userInfo.getbook(id);
+            tvInfo.setText(result);
         });
+    }
 
-
-        // 全図書情報の全表示
-        Button btDispbook = findViewById(R.id.buttonDispbook);
-        btDispbook.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                // 登録者数が0人の場合は，メッセージを出す
-                if((book.getNumOfBookInfo()) == 0) {
-                    tvInfo.setText("誰も登録されていません");
-                    return;
-                }
+    // 全図書情報を表示するボタンの設定
+    private void setupDisplayAllBooksButton() {
+        Button btDispBook = findViewById(R.id.buttonDispbook);
+        btDispBook.setOnClickListener(view -> {
+            if (book.getNumOfBookInfo() == 0) {
+                tvInfo.setText("誰も登録されていません");
+            } else {
                 tvInfo.setText(book.getBookState());
             }
         });
+    }
 
-
-        //貸出画面への遷移のボタン
+    // 貸出画面に遷移するボタンの設定
+    private void setupTransitionToLendPageButton(String id) {
         Button btRemovePage = findViewById(R.id.btRemovePage);
-        btRemovePage.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view) {
-                Intent intent = new Intent(UserHome.this, UserInfoManagement.class);
-                intent.putExtra("KEY_STRING", id);
-                startActivity(intent);
-            }
-
-
-
+        btRemovePage.setOnClickListener(view -> {
+            Intent intent = new Intent(UserHome.this, UserInfoManagement.class);
+            intent.putExtra("KEY_STRING", id);
+            startActivity(intent);
         });
+    }
 
-
-
-        // 初期画面に戻る
+    // 初期画面に戻るボタンの設定
+    private void setupBackButton() {
         Button btBack = findViewById(R.id.buttonBacklogin);
-        btBack.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view){
-                finish();
-            }
-        });
-
+        btBack.setOnClickListener(view -> finish());
     }
 }

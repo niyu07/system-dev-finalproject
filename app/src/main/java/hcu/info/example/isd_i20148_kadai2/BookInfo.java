@@ -89,7 +89,6 @@ public class BookInfo {
             Book book = bookList.get(i);
             if (book.bookName.equals(book_id)) {
                 //学生情報を表示できるようにしたい
-                System.out.println("a");
                 bn.append(book.getBookIDandName() + "\n");
             }
         }

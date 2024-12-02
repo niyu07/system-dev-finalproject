@@ -139,5 +139,5 @@ public class UserInfo {
     }
 
 
-    //ボタンを自動作成するメソッド　全表示の時
+
 }
