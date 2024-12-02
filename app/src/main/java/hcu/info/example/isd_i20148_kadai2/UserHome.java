@@ -22,11 +22,10 @@ public class UserHome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_home);
 
-        // UIコンポーネントの初期化
+        // UI コンポーネントの初期化
         tvInfo = findViewById(R.id.tvInfo);
         tvid = findViewById(R.id.tvid);
         etBookName = findViewById(R.id.etBookName);
-
         tvInfo.setMovementMethod(new ScrollingMovementMethod());
 
         // 前画面から学籍番号を取得して表示

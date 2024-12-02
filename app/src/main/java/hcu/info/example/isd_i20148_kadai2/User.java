@@ -6,33 +6,38 @@ import java.util.Map;
 public class User {
     public String userID;
     public String userName;
-    //HashMAp
+    // 借りている図書を格納するHashMap
     public Map<String, String> userBook = new HashMap<>();
 
-    //初期状態
-    User(){
+    // 初期状態
+    User() {
         userID = "No information.";
         userName = "No information.";
     }
 
-    //ユーザ情報の表示
-    public String getUserIDandName(){
-        return "学籍番号: " + userID + " 名前: " + userName + "貸出状況: " + getInfo();
+    // ユーザの学籍番号、名前、貸出状況を表示するメソッド
+    public String getUserIDandName() {
+        return "学籍番号: " + userID + " 名前: " + userName + " 貸出状況: " + getInfo();
     }
 
-    //ユーザが借りている図書を表示するメソッド
-    public String getRentBook() {return"学籍番号: " + userID + "名前："+  userName + "\n" + getInfo();}
+    // ユーザが借りている図書を表示するメソッド
+    public String getRentBook() {
+        return "学籍番号: " + userID + " 名前: " + userName + "\n" + getInfo();
+    }
 
+    // 借りている図書の情報を取得するメソッド
     public String getInfo() {
-        StringBuffer cg = new StringBuffer();
+        StringBuilder cg = new StringBuilder();
         for (Map.Entry<String, String> entry : userBook.entrySet()) {
             String grade = entry.getValue() != null ? entry.getValue() : "未登録";
-            cg.append("図書ID: " + entry.getKey() + "　" + "図書名: " + grade + "\n");
+            cg.append("図書ID: ").append(entry.getKey())
+                    .append("　図書名: ").append(grade)
+                    .append("\n");
         }
         return cg.toString();
     }
 
-    //Userが借りている本のカウントする
+    // ユーザが借りている図書の数をカウントするメソッド
     public int getBookCount() {
         return userBook.size();
     }

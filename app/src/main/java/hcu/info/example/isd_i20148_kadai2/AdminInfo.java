@@ -32,7 +32,7 @@ public class AdminInfo {
         if (existsOfStudentID(adminID)) {
             return false; // すでに登録されている
         } else {
-            // データの追加
+            // 新しい管理者データを追加
             Admin admin = new Admin();
             admin.adminID = adminID;
             admin.adminName = adminName;
