@@ -137,4 +137,7 @@ public class UserInfo {
         }
         return false;
     }
+
+
+    //ボタンを自動作成するメソッド　全表示の時
 }

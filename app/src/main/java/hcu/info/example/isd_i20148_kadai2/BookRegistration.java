@@ -23,7 +23,7 @@ public class BookRegistration extends AppCompatActivity {
         tvBookRegist = findViewById(R.id.tvBookRegst);
 
         //editextの宣言
-        EditText etBookID = findViewById(R.id.etBookID);
+        EditText etBookID = findViewById(R.id.etBookName);
         EditText etBookName = findViewById(R.id.etBookName);
 
         //図書の登録

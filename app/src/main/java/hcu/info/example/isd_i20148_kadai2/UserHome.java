@@ -36,7 +36,7 @@ public class UserHome extends AppCompatActivity {
         tvid = findViewById(R.id.tvid);
 
         //editTextの宣言
-        EditText etBookID = findViewById(R.id.etBookID);
+        EditText etBookName = findViewById(R.id.etBookName);
 
         // Intentから文字列を取得　上の方に表示する前の画面から学籍番号を取ってくるのに必要なので必ず使用するようにする
         Intent intent = getIntent();
@@ -49,7 +49,7 @@ public class UserHome extends AppCompatActivity {
         btBookSerach.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
                 // ログインをするときに学籍情報があるかどうかを確認しているのでここではいらない
-                tvInfo.setText(book.searchBook(etBookID.getText().toString()));
+                tvInfo.setText(book.searchBook(etBookName.getText().toString()));
             }
         });
 

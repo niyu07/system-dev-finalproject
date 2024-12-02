@@ -7,11 +7,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.text.method.ScrollingMovementMethod;
-import androidx.activity.EdgeToEdge;
+
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class UserInfoManagement extends AppCompatActivity {
 
@@ -30,7 +27,7 @@ public class UserInfoManagement extends AppCompatActivity {
         tvid = findViewById(R.id.tvid);
 
         //editTExtの宣言
-        EditText etBookID = findViewById(R.id.etBookID);
+        EditText etBookID = findViewById(R.id.etBookName);
         EditText etBookName = findViewById(R.id.etBookName);
 
         // Intentから文字列を取得　上の方に表示する前の画面から学籍番号を取ってくるのに必要なので必ず使用するようにする

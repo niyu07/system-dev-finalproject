@@ -27,6 +27,26 @@ public class BookInfo {
         Book book8 = new Book(); book8.bookID = "0008"; book8.bookName = "cccc"; bookList.add(book8); // 重複名
         Book book9 = new Book(); book9.bookID = "0009"; book9.bookName = "ffff"; bookList.add(book9);
         Book book10 = new Book(); book10.bookID = "0010"; book10.bookName = "aaaa"; bookList.add(book10); // 重複名
+        Book book11 = new Book(); book11.bookID = "0011"; book11.bookName = "gggg"; bookList.add(book11);
+        Book book12 = new Book(); book12.bookID = "0012"; book12.bookName = "hhhh"; bookList.add(book12);
+        Book book13 = new Book(); book13.bookID = "0013"; book13.bookName = "aaaa"; bookList.add(book13); // 重複名
+        Book book14 = new Book(); book14.bookID = "0014"; book14.bookName = "iiii"; bookList.add(book14);
+        Book book15 = new Book(); book15.bookID = "0015"; book15.bookName = "bbbb"; bookList.add(book15); // 重複名
+        Book book16 = new Book(); book16.bookID = "0016"; book16.bookName = "jjjj"; bookList.add(book16);
+        Book book17 = new Book(); book17.bookID = "0017"; book17.bookName = "kkkk"; bookList.add(book17);
+        Book book18 = new Book(); book18.bookID = "0018"; book18.bookName = "cccc"; bookList.add(book18); // 重複名
+        Book book19 = new Book(); book19.bookID = "0019"; book19.bookName = "llll"; bookList.add(book19);
+        Book book20 = new Book(); book20.bookID = "0020"; book20.bookName = "mmmm"; bookList.add(book20);
+        Book book21 = new Book(); book21.bookID = "0021"; book21.bookName = "aaaa"; bookList.add(book21); // 重複名
+        Book book22 = new Book(); book22.bookID = "0022"; book22.bookName = "nnnn"; bookList.add(book22);
+        Book book23 = new Book(); book23.bookID = "0023"; book23.bookName = "bbbb"; bookList.add(book23); // 重複名
+        Book book24 = new Book(); book24.bookID = "0024"; book24.bookName = "oooo"; bookList.add(book24);
+        Book book25 = new Book(); book25.bookID = "0025"; book25.bookName = "pppp"; bookList.add(book25);
+        Book book26 = new Book(); book26.bookID = "0026"; book26.bookName = "qqqq"; bookList.add(book26);
+        Book book27 = new Book(); book27.bookID = "0027"; book27.bookName = "rrrr"; bookList.add(book27);
+        Book book28 = new Book(); book28.bookID = "0028"; book28.bookName = "aaaa"; bookList.add(book28); // 重複名
+        Book book29 = new Book(); book29.bookID = "0029"; book29.bookName = "bbbb"; bookList.add(book29); // 重複名
+        Book book30 = new Book(); book30.bookID = "0030"; book30.bookName = "ssss"; bookList.add(book30);
 
     }
 
@@ -62,16 +82,18 @@ public class BookInfo {
         return bb.toString();
     }
 
-    //図書の検索するメソッド 使われていない？！
+    //図書の検索するメソッド
     public String searchBook(String book_id){
+        StringBuffer bn = new StringBuffer();
         for (int i = 0; i < bookList.size(); i++) {
             Book book = bookList.get(i);
-            if (book.bookID.equals(book_id)) {
+            if (book.bookName.equals(book_id)) {
                 //学生情報を表示できるようにしたい
-                return ("ID:" + book.bookID + "name：" + book.bookName);
+                System.out.println("a");
+                bn.append(book.getBookIDandName() + "\n");
             }
         }
-        return "情報が見つかりませんでした";
+        return bn.toString();
     }
 
     //図書の貸し出し　生徒には登録をしていないので生徒の方でも作る必要がある

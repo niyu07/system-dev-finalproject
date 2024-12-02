@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="160dp"
-        android:layout_marginBottom="388dp"
+        android:layout_marginBottom="424dp"
         android:text="利用者"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -30,18 +30,6 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
-        android:id="@+id/etName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="55dp"
-        android:layout_marginEnd="71dp"
-        android:ems="10"
-        android:inputType="text"
-        android:hint="名前"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etID" />
-
-    <EditText
         android:id="@+id/etID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -52,16 +40,6 @@
         android:hint="学籍番号"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tvName"
-        android:layout_width="67dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="72dp"
-        android:text="名前"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvID" />
 
     <TextView
         android:id="@+id/tvID"
